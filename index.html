@@ -26,8 +26,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
   mask-image:radial-gradient(ellipse 90% 70% at 50% 40%,#000 30%,transparent 80%)}
 .wrap{flex:1;display:flex;flex-direction:column;padding:0 clamp(8px,2vw,30px);overflow:hidden;position:relative;z-index:1;min-height:0}
 
-.topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:clamp(6px,1.2vh,16px) 0 clamp(3px,.6vh,8px);flex:none}
-.title-block{text-align:left;min-width:0}
+.topbar{display:flex;align-items:center;justify-content:center;gap:10px;padding:clamp(6px,1.2vh,16px) 0 clamp(3px,.6vh,8px);flex:none}
+.title-block{text-align:center;width:100%;min-width:0}
 .title-block h1{font-family:'Press Start 2P';line-height:1.06;letter-spacing:1px}
 .title-block .r1{display:block;color:var(--red);font-size:clamp(15px,4.4vw,34px);text-shadow:0 2px 0 rgba(0,0,0,.35)}
 .title-block .r2{display:block;color:var(--orange);font-size:clamp(18px,5.4vw,42px);text-shadow:0 2px 0 rgba(0,0,0,.35);margin-top:clamp(2px,.4vh,5px)}
@@ -37,13 +37,13 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .grid{flex:1;display:flex;min-height:0;padding:clamp(5px,1vh,12px) 0}
 .list{flex:1;background:rgba(28,12,71,.55);border:1px solid var(--cardLine);border-radius:14px;display:flex;flex-direction:column;overflow:hidden;min-height:0;backdrop-filter:blur(2px)}
 .rows{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
-.row{flex:1;display:grid;grid-template-columns:clamp(30px,4.4vh,58px) 1fr;gap:clamp(8px,1.2vw,20px);align-items:center;min-height:0;padding:clamp(2px,.5vh,10px) clamp(12px,1.6vw,24px);border-bottom:1px solid rgba(75,45,168,.4);transition:.15s;overflow:hidden}
+.row{flex:1;display:grid;grid-template-columns:clamp(28px,4vh,54px) minmax(0,1fr);gap:clamp(5px,1vw,16px);align-items:center;min-height:0;padding:clamp(2px,.45vh,8px) clamp(9px,1.4vw,22px);border-bottom:1px solid rgba(75,45,168,.4);transition:.15s;overflow:hidden}
 .row:last-child{border-bottom:none}
 .row:hover{background:rgba(75,45,168,.22)}
 .row.top1,.row.top2,.row.top3{background:rgba(255,161,31,.12)}
 .plaque{font-family:'Press Start 2P';font-size:clamp(13px,2.2vh,28px);color:var(--orange);text-align:left;line-height:1}
 .row-info{min-width:0;text-align:left}
-.row-name{font-family:'Saira';font-weight:800;font-size:clamp(15px,2.4vh,30px);text-transform:uppercase;letter-spacing:.3px;line-height:1.04;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row-name{font-family:'Saira';font-weight:800;font-size:clamp(13px,1.9vh,26px);text-transform:uppercase;letter-spacing:.1px;line-height:1.04;color:#fff;white-space:nowrap;overflow:visible;text-overflow:clip;max-width:100%}
 .row-line2{display:flex;align-items:center;gap:clamp(4px,.6vw,10px);margin-top:clamp(1px,.3vh,4px);flex-wrap:wrap;font-weight:700;font-size:clamp(10px,1.3vh,16px);color:var(--muted)}
 
 /* cards inferiores */
@@ -51,8 +51,8 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .chip{background:#fff;border-radius:10px;padding:clamp(4px,.8vh,10px) 8px;flex:1 1 0;min-width:0;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.2)}
 .chip .k{font-family:'Press Start 2P';font-size:clamp(6px,.95vh,10px);letter-spacing:.5px;color:var(--txtDark);line-height:1.3}
 .chip .v{font-family:'Saira';font-weight:900;font-size:clamp(15px,2.5vh,32px);line-height:1;margin-top:clamp(2px,.4vh,5px);color:var(--red);white-space:nowrap}
-.destaque{background:#fff;border-radius:10px;flex:none;margin-top:clamp(5px,1vw,12px);display:flex;align-items:center;justify-content:center;gap:clamp(8px,2vw,18px);padding:clamp(4px,.8vh,10px) 12px;box-shadow:0 4px 12px rgba(0,0,0,.2)}
-.destaque .k{font-family:'Press Start 2P';font-size:clamp(6px,.95vh,10px);letter-spacing:.5px;color:var(--txtDark)}
+.destaque{background:#fff;border-radius:10px;flex:none;margin-top:clamp(5px,1vw,12px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(2px,.4vh,5px);padding:clamp(4px,.8vh,10px) 12px;box-shadow:0 4px 12px rgba(0,0,0,.2);text-align:center}
+.destaque .k{font-family:'Press Start 2P';font-size:clamp(6px,.95vh,10px);letter-spacing:.5px;color:var(--txtDark);line-height:1.3}
 .destaque .v{font-family:'Saira';font-weight:900;font-size:clamp(15px,2.5vh,32px);line-height:1;color:var(--orange);white-space:nowrap}
 
 .foot{flex:none;display:flex;align-items:center;justify-content:center;padding:clamp(6px,1.2vh,16px) 0 clamp(8px,1.4vh,18px)}
@@ -68,40 +68,57 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .lock-btn svg{width:48%;height:48%}
 
 /* painel admin */
-.admin{position:fixed;inset:0;z-index:100;background:rgba(10,5,30,.97);display:none;flex-direction:column;
-  overflow-y:auto;padding:clamp(16px,3vw,34px)}
+.admin{position:fixed;inset:0;z-index:100;background:#08031c;display:none;flex-direction:column;
+  overflow-y:auto;padding:clamp(14px,2.5vw,28px)}
 .admin.open{display:flex}
-.admin-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:clamp(14px,2.5vh,26px)}
+.admin-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:clamp(10px,1.8vh,18px)}
 .admin-head h2{font-family:'Press Start 2P';font-size:clamp(13px,2vh,22px);color:var(--orange);letter-spacing:1px}
 .admin-close{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;
   font-family:'Saira';font-weight:800;font-size:clamp(12px,1.6vh,16px);padding:8px 16px;border-radius:9px;cursor:pointer;text-transform:uppercase}
 .admin-close:hover{background:rgba(255,255,255,.22)}
-.adm-sec{background:rgba(255,255,255,.04);border:1px solid var(--cardLine);border-radius:14px;
-  padding:clamp(12px,2vw,22px);margin-bottom:clamp(12px,2vh,22px)}
-.adm-sec h3{font-family:'Press Start 2P';font-size:clamp(10px,1.5vh,14px);color:var(--gold);letter-spacing:1px;margin-bottom:clamp(10px,1.6vh,16px)}
-.adm-actions{display:flex;gap:12px;flex-wrap:wrap}
+.adm-sec{background:#130b2c;border:1px solid var(--cardLine);border-radius:12px;
+  padding:clamp(10px,1.5vw,16px);margin-bottom:clamp(10px,1.6vh,16px);width:100%}
+.adm-sec h3{font-family:'Press Start 2P';font-size:clamp(10px,1.35vh,13px);color:var(--gold);letter-spacing:1px;margin-bottom:clamp(8px,1.2vh,12px)}
+.adm-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .adm-btn{background:linear-gradient(160deg,#ffb347,#ff8a00);border:none;color:#1c0c47;font-family:'Saira';font-weight:900;
-  letter-spacing:.5px;font-size:clamp(12px,1.6vh,16px);padding:11px 20px;border-radius:10px;cursor:pointer;
+  letter-spacing:.5px;font-size:clamp(11px,1.45vh,14px);padding:9px 16px;border-radius:8px;cursor:pointer;
   display:flex;align-items:center;gap:8px;text-transform:uppercase;transition:.18s}
 .adm-btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
 .adm-btn.ghost{background:transparent;border:1px solid var(--cardLine);color:#fff}
 .adm-btn svg{width:16px;height:16px}
-.adm-note{color:var(--muted);font-weight:600;font-size:clamp(11px,1.4vh,14px);margin-top:10px;line-height:1.5}
+.adm-note{color:var(--muted);font-weight:600;font-size:clamp(10px,1.25vh,12px);margin-top:8px;line-height:1.35}
 .adm-note b{color:#fff}
 
-table.tb{width:100%;border-collapse:collapse;font-size:clamp(11px,1.4vh,15px)}
-table.tb th,table.tb td{padding:clamp(6px,1vh,10px) clamp(6px,1vw,12px);text-align:left;border-bottom:1px solid rgba(75,45,168,.4)}
-table.tb th{font-family:'Press Start 2P';font-size:clamp(7px,1vh,10px);color:var(--gold);letter-spacing:.5px;text-transform:uppercase}
+table.tb{width:100%;min-width:1050px;border-collapse:collapse;font-size:clamp(10px,1.25vh,13px)}
+table.tb th,table.tb td{padding:clamp(4px,.7vh,7px) clamp(5px,.8vw,9px);text-align:left;border-bottom:1px solid rgba(75,45,168,.4);line-height:1.15}
+table.tb th{font-family:'Press Start 2P';font-size:clamp(6px,.85vh,9px);color:var(--gold);letter-spacing:.4px;text-transform:uppercase;position:sticky;top:0;background:#130b2c;z-index:1}
 table.tb td{font-weight:600;color:#eee}
 table.tb td.num,table.tb th.num{text-align:right;font-variant-numeric:tabular-nums}
 table.tb td.tot{font-weight:900;color:var(--orange)}
 table.tb tr:last-child td{border-bottom:none}
-.tb-scroll{overflow-x:auto}
-.peso-line{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:clamp(5px,1vh,9px) 0;border-bottom:1px dashed rgba(75,45,168,.4)}
-.peso-line:last-child{border-bottom:none}
-.peso-line .lbl{font-weight:700;color:#fff;font-size:clamp(12px,1.5vh,16px)}
-.peso-line .val{font-weight:800;color:var(--gold);font-size:clamp(12px,1.5vh,16px);white-space:nowrap}
-.peso-line .sub{color:var(--muted);font-weight:600;font-size:clamp(10px,1.2vh,13px)}
+table.tb tr.top-rank td{background:rgba(255,161,31,.08)}
+.tb-scroll{overflow:auto;max-height:52vh;border-radius:8px}
+#pesos{width:100%;overflow:auto;border-radius:8px}
+.peso-table{width:100%;min-width:760px;border-collapse:collapse;font-size:clamp(10px,1.22vh,13px)}
+.peso-table th,.peso-table td{padding:clamp(4px,.65vh,7px) clamp(6px,.9vw,10px);border-bottom:1px solid rgba(75,45,168,.4);line-height:1.15;text-align:left}
+.peso-table th{font-family:'Press Start 2P';font-size:clamp(6px,.82vh,9px);color:var(--gold);letter-spacing:.35px;text-transform:uppercase;background:#130b2c}
+.peso-table th.num{text-align:right;font-variant-numeric:tabular-nums}
+.peso-table td{font-weight:700;color:#eee}
+.peso-table td.peso-valor{font-weight:900;color:var(--gold);white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+.peso-table td.peso-equiv{color:var(--muted);font-weight:700;text-align:right;white-space:nowrap}
+.peso-table tr:last-child td{border-bottom:none}
+.peso-note{margin-top:7px}
+@media (max-width:700px){
+  .topbar{padding-top:8px}
+  .row{grid-template-columns:36px minmax(0,1fr);gap:5px;padding:3px 8px}
+  .plaque{font-size:18px}
+  .row-name{font-size:12px;letter-spacing:0;line-height:1.05}
+  .row-line2{font-size:10px;gap:4px;line-height:1.1}
+  .destaque{gap:2px}
+  .admin{padding:12px}
+  .tb-scroll{max-height:55vh}
+}
+@media (max-width:380px){.row-name{font-size:10.5px}.plaque{font-size:16px}.row{grid-template-columns:32px minmax(0,1fr);padding-left:6px;padding-right:6px}}
 </style>
 </head>
 <body>
@@ -140,24 +157,21 @@ table.tb tr:last-child td{border-bottom:none}
       <button class="adm-btn" onclick="document.getElementById('file').click()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 8l5-5 5 5M5 21h14"/></svg>
         Importar Excel</button>
-      <button class="adm-btn ghost" id="tplBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21V9M7 16l5 5 5-5M5 3h14"/></svg>
-        Descargar Plantilla</button>
+      <button class="adm-btn ghost" id="exportBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+        Exportar Dados</button>
     </div>
     <input type="file" id="file" accept=".xlsx,.xls" class="hidden">
-    <div class="adm-note">La plantilla trae las columnas exactas que el sistema necesita:
-      <b>Sucursal · Gestor · Clientes · Pedidos · U$ Agroquímicos · U$ Especialidades · U$ Semillas · U$ Fertilizantes · U$ Total</b>.
-      Completá los datos y volvé a importar.</div>
   </div>
 
   <div class="adm-sec">
     <h3>Sistema de Puntuación</h3>
     <div id="pesos"></div>
-    <div class="adm-note">La puntuación define el orden del ranking. No se muestra en la pantalla pública, solo acá.</div>
+    <div class="adm-note peso-note">La puntuación define el orden del ranking. No se muestra en la pantalla pública, solo acá.</div>
   </div>
 
   <div class="adm-sec">
-    <h3>Puntuación del Top 10</h3>
+    <h3>Puntuación Geral</h3>
     <div class="tb-scroll"><table class="tb" id="tablaPuntos"></table></div>
   </div>
 </div>
@@ -216,32 +230,33 @@ function renderAdmin(){
     ['Semillas','0,00013 pts por US$','≈ 1 pto cada US$ 7.692'],
     ['Fertilizantes','0,00007 pts por US$','≈ 1 pto cada US$ 14.286']
   ];
-  document.getElementById('pesos').innerHTML=pesos.map(p=>
-    `<div class="peso-line"><span class="lbl">${p[0]}</span><span style="text-align:right"><span class="val">${p[1]}</span>${p[2]?`<br><span class="sub">${p[2]}</span>`:''}</span></div>`).join('');
-  // tabla top 10
-  const top=CALC.slice(0,TOP_N);
-  let thead=`<tr><th>#</th><th>Gestor</th><th>Sucursal</th><th class="num">Cliente</th><th class="num">Pedido</th><th class="num">Agro</th><th class="num">Espec</th><th class="num">Semillas</th><th class="num">Fert</th><th class="num">Total</th></tr>`;
+  document.getElementById('pesos').innerHTML=
+    `<table class="peso-table"><thead><tr><th>Critério</th><th class="num">Pontuação</th><th class="num">Equivalência</th></tr></thead><tbody>`+
+    pesos.map(p=>`<tr><td>${p[0]}</td><td class="peso-valor">${p[1]}</td><td class="peso-equiv">${p[2]||'—'}</td></tr>`).join('')+
+    `</tbody></table>`;
+  // tabela geral de pontuação
+  const top=CALC;
+  let thead=`<tr><th>#</th><th>Gestor</th><th>Sucursal</th><th class="num">Cliente</th><th class="num">Pedido</th><th class="num">Agro</th><th class="num">Espec</th><th class="num">Semillas</th><th class="num">Fert</th><th class="num">US$ Total</th><th class="num">Pontos</th></tr>`;
   let tbody=top.map((o,i)=>
-    `<tr><td>${i+1}º</td><td>${o.cliente}</td><td>${o.unidade}</td>`+
+    `<tr class="${i<TOP_N?'top-rank':''}"><td>${i+1}º</td><td>${o.cliente}</td><td>${o.unidade}</td>`+
     `<td class="num">${fP(o.sub.cliente)}</td><td class="num">${fP(o.sub.pedido)}</td>`+
     `<td class="num">${fP(o.sub.agro)}</td><td class="num">${fP(o.sub.espec)}</td>`+
     `<td class="num">${fP(o.sub.semillas)}</td><td class="num">${fP(o.sub.fert)}</td>`+
-    `<td class="num tot">${fP(o.pts)}</td></tr>`).join('');
+    `<td class="num">${fU(o.total)}</td><td class="num tot">${fP(o.pts)}</td></tr>`).join('');
   document.getElementById('tablaPuntos').innerHTML=thead+tbody;
 }
 
-// plantilla
-document.getElementById('tplBtn').addEventListener('click',()=>{
+// exportar dados no mesmo formato da base
+document.getElementById('exportBtn').addEventListener('click',()=>{
   const aoa=[
     ['Sucursal','Gestor','Clientes','Pedidos','U$ Agroquimicos','U$ Especialidades','U$ Semillas','U$ Fertilizantes','U$ Total'],
-    ['Santa Rita','Nombre Apellido',1,1,10000,0,0,0,10000],
-    ['Katuete','Otro Gestor',2,3,5000,2000,1000,0,8000]
+    ...DADOS.map(r=>[r.unidade,r.cliente,r.clientes,r.pedidos,r.agro,r.espec,r.semillas,r.fert,r.total])
   ];
   const ws=XLSX.utils.aoa_to_sheet(aoa);
-  ws['!cols']=[{wch:18},{wch:24},{wch:9},{wch:9},{wch:16},{wch:16},{wch:14},{wch:16},{wch:12}];
+  ws['!cols']=[{wch:18},{wch:34},{wch:9},{wch:9},{wch:16},{wch:18},{wch:14},{wch:18},{wch:14}];
   const wb=XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb,ws,'Base');
-  XLSX.writeFile(wb,'Plantilla_Ranking_Somax.xlsx');
+  XLSX.writeFile(wb,'Dados_Ranking_Somax.xlsx');
 });
 
 // cadeado / admin
