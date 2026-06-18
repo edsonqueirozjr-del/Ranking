@@ -42,6 +42,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .row:hover{background:rgba(75,45,168,.22)}
 .row.top1,.row.top2,.row.top3{background:rgba(255,161,31,.12)}
 .plaque{font-family:'Press Start 2P';font-size:clamp(10px,1.6vh,20px);color:var(--orange);text-align:left;line-height:1}
+.plaque.medal{font-family:'Saira',sans-serif;font-size:clamp(20px,3vh,34px);filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));line-height:1;text-align:center}
 .row-info{min-width:0;text-align:left}
 .row-name{font-family:'Saira';font-weight:800;font-size:clamp(13px,1.9vh,26px);text-transform:uppercase;letter-spacing:.1px;line-height:1.04;color:#fff;white-space:nowrap;overflow:visible;text-overflow:clip;max-width:100%}
 .row-line2{display:flex;align-items:center;gap:clamp(4px,.6vw,10px);margin-top:clamp(1px,.3vh,4px);flex-wrap:wrap;font-weight:700;font-size:clamp(10px,1.3vh,16px);color:var(--muted)}
@@ -77,8 +78,15 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
   font-family:'Saira';font-weight:800;font-size:clamp(12px,1.6vh,16px);padding:8px 16px;border-radius:9px;cursor:pointer;text-transform:uppercase}
 .admin-close:hover{background:rgba(255,255,255,.22)}
 .adm-sec{background:#130b2c;border:1px solid var(--cardLine);border-radius:12px;
-  padding:clamp(10px,1.5vw,16px);margin-bottom:clamp(10px,1.6vh,16px);width:100%}
-.adm-sec h3{font-family:'Press Start 2P';font-size:clamp(10px,1.35vh,13px);color:var(--gold);letter-spacing:1px;margin-bottom:clamp(8px,1.2vh,12px)}
+  margin-bottom:clamp(8px,1.3vh,14px);width:100%;overflow:hidden}
+.adm-toggle{width:100%;background:transparent;border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:clamp(9px,1.3vw,14px) clamp(10px,1.5vw,16px);text-align:left;transition:.16s}
+.adm-toggle:hover{background:rgba(255,255,255,.06)}
+.adm-toggle h3{font-family:'Press Start 2P';font-size:clamp(9px,1.25vh,13px);color:var(--gold);letter-spacing:1px;margin:0;line-height:1.25}
+.adm-chevron{flex:none;color:var(--orange);font-size:18px;font-weight:900;line-height:1;transition:.18s}
+.adm-content{display:none;padding:clamp(6px,.9vh,10px) clamp(10px,1.5vw,16px) clamp(10px,1.5vw,16px)}
+.adm-sec.open .adm-content{display:block}
+.adm-sec.open .adm-chevron{transform:rotate(180deg)}
 .adm-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .adm-btn{background:linear-gradient(160deg,#ffb347,#ff8a00);border:none;color:#1c0c47;font-family:'Saira';font-weight:900;
   letter-spacing:.5px;font-size:clamp(11px,1.45vh,14px);padding:9px 16px;border-radius:8px;cursor:pointer;
@@ -98,20 +106,26 @@ table.tb td.tot{font-weight:900;color:var(--orange)}
 table.tb tr:last-child td{border-bottom:none}
 table.tb tr.top-rank td{background:rgba(255,161,31,.08)}
 .tb-scroll{overflow:auto;max-height:52vh;border-radius:8px}
-#pesos{width:100%;overflow:auto;border-radius:8px}
+#pesos{width:100%;overflow:auto;border-radius:8px;max-height:38vh}
+#editorGestores{width:100%;overflow:auto;border-radius:8px;max-height:52vh;border:1px solid rgba(75,45,168,.35)}
 .peso-table{width:100%;min-width:760px;border-collapse:collapse;font-size:clamp(10px,1.22vh,13px)}
-.peso-table th,.peso-table td{padding:clamp(4px,.65vh,7px) clamp(6px,.9vw,10px);border-bottom:1px solid rgba(75,45,168,.4);line-height:1.15;text-align:left}
-.peso-table th{font-family:'Press Start 2P';font-size:clamp(6px,.82vh,9px);color:var(--gold);letter-spacing:.35px;text-transform:uppercase;background:#130b2c}
+.gestor-table{width:100%;min-width:760px;border-collapse:collapse;font-size:clamp(10px,1.22vh,13px)}
+.peso-table th,.peso-table td,.gestor-table th,.gestor-table td{padding:clamp(4px,.65vh,7px) clamp(6px,.9vw,10px);border-bottom:1px solid rgba(75,45,168,.4);line-height:1.15;text-align:left}
+.peso-table th,.gestor-table th{font-family:'Press Start 2P';font-size:clamp(6px,.82vh,9px);color:var(--gold);letter-spacing:.35px;text-transform:uppercase;background:#130b2c;position:sticky;top:0;z-index:1}
 .peso-table th.num{text-align:right;font-variant-numeric:tabular-nums}
-.peso-table td{font-weight:700;color:#eee}
+.peso-table td,.gestor-table td{font-weight:700;color:#eee}
 .peso-table td.peso-valor{font-weight:900;color:var(--gold);white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
 .peso-table td.peso-equiv{color:var(--muted);font-weight:700;text-align:right;white-space:nowrap}
-.peso-table tr:last-child td{border-bottom:none}
+.peso-table tr:last-child td,.gestor-table tr:last-child td{border-bottom:none}
+.gestor-input{width:100%;min-width:240px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:7px;color:#fff;font-family:'Saira',sans-serif;font-weight:800;font-size:clamp(11px,1.35vh,14px);padding:6px 8px;outline:none}
+.gestor-input:focus{border-color:var(--orange);box-shadow:0 0 0 2px rgba(255,161,31,.16)}
+.gestor-original{color:var(--muted);font-weight:700;white-space:nowrap}
 .peso-note{margin-top:7px}
 @media (max-width:700px){
   .topbar{padding-top:8px}
   .row{grid-template-columns:52px minmax(0,1fr);gap:8px;padding:3px 8px}
   .plaque{font-size:14px}
+  .plaque.medal{font-size:24px}
   .row-name{font-size:12px;letter-spacing:0;line-height:1.05}
   .row-line2{font-size:10px;gap:4px;line-height:1.1}
   .destaque{gap:2px}
@@ -151,28 +165,54 @@ table.tb tr.top-rank td{background:rgba(255,161,31,.08)}
     <button class="admin-close" id="admClose">Cerrar ✕</button>
   </div>
 
-  <div class="adm-sec">
-    <h3>Importar Datos</h3>
-    <div class="adm-actions">
-      <button class="adm-btn" onclick="document.getElementById('file').click()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 8l5-5 5 5M5 21h14"/></svg>
-        Importar Excel</button>
-      <button class="adm-btn ghost" id="exportBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
-        Exportar Dados</button>
+  <div class="adm-sec open">
+    <button type="button" class="adm-toggle" aria-expanded="true">
+      <h3>Importar Datos</h3><span class="adm-chevron">⌄</span>
+    </button>
+    <div class="adm-content">
+      <div class="adm-actions">
+        <button class="adm-btn" onclick="document.getElementById('file').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 8l5-5 5 5M5 21h14"/></svg>
+          Importar Excel</button>
+        <button class="adm-btn ghost" id="exportBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+          Exportar Dados</button>
+      </div>
+      <input type="file" id="file" accept=".xlsx,.xls" class="hidden">
     </div>
-    <input type="file" id="file" accept=".xlsx,.xls" class="hidden">
   </div>
 
   <div class="adm-sec">
-    <h3>Sistema de Puntuación</h3>
-    <div id="pesos"></div>
-    <div class="adm-note peso-note">La puntuación define el orden del ranking. No se muestra en la pantalla pública, solo acá.</div>
+    <button type="button" class="adm-toggle" aria-expanded="false">
+      <h3>Sistema de Puntuación</h3><span class="adm-chevron">⌄</span>
+    </button>
+    <div class="adm-content">
+      <div id="pesos"></div>
+      <div class="adm-note peso-note">La puntuación define el orden del ranking. No se muestra en la pantalla pública, solo acá.</div>
+    </div>
   </div>
 
   <div class="adm-sec">
-    <h3>Puntuación Geral</h3>
-    <div class="tb-scroll"><table class="tb" id="tablaPuntos"></table></div>
+    <button type="button" class="adm-toggle" aria-expanded="false">
+      <h3>Puntuación Geral</h3><span class="adm-chevron">⌄</span>
+    </button>
+    <div class="adm-content">
+      <div class="tb-scroll"><table class="tb" id="tablaPuntos"></table></div>
+    </div>
+  </div>
+
+  <div class="adm-sec">
+    <button type="button" class="adm-toggle" aria-expanded="false">
+      <h3>Editar Nombres de Gestores</h3><span class="adm-chevron">⌄</span>
+    </button>
+    <div class="adm-content">
+      <div class="adm-actions">
+        <button class="adm-btn" id="saveNamesBtn">Guardar Nombres</button>
+        <button class="adm-btn ghost" id="resetNamesBtn">Restaurar Originales</button>
+      </div>
+      <div class="adm-note">Edite el nombre en la columna <b>Nombre en pantalla</b>. Al guardar, el cambio se refleja automaticamente en el ranking principal.</div>
+      <div id="editorGestores" style="margin-top:8px"></div>
+    </div>
   </div>
 </div>
 
@@ -181,11 +221,40 @@ const PESOS={cliente:.5,pedido:.5,agro:.0003,espec:.0005,semillas:.00013,fert:.0
 const TOP_N=10;
 let DADOS=[{"unidade": "San Pedro", "cliente": "Alexis Osmar Florentin Jaime", "clientes": 1, "pedidos": 1, "agro": 169296.0545, "espec": 30972.947, "semillas": 35714.28, "fert": 0.0, "total": 235983.2815}, {"unidade": "Bella Vista", "cliente": "Tiago Hammes Schmidt", "clientes": 1, "pedidos": 1, "agro": 180000.3, "espec": 0.0, "semillas": 0.0, "fert": 0.0, "total": 180000.3}, {"unidade": "San Pedro", "cliente": "Diego Samuel Leon Villaverde", "clientes": 4, "pedidos": 5, "agro": 63306.1137, "espec": 14686.3418, "semillas": 1597.1447, "fert": 49199.997, "total": 128789.5972}, {"unidade": "San Alberto", "cliente": "Fabio Rogerio Graeff", "clientes": 1, "pedidos": 2, "agro": 0.0, "espec": 0.0, "semillas": 183857.193, "fert": 0.0, "total": 183857.193}, {"unidade": "Katuete", "cliente": "Augusto Kaefer", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 161904.8, "fert": 0.0, "total": 161904.8}, {"unidade": "Ciudad del Este", "cliente": "Antonio Carvalho de Oliveira", "clientes": 1, "pedidos": 1, "agro": 6772.725, "espec": 3927.2724, "semillas": 0.0, "fert": 0.0, "total": 10699.9974}, {"unidade": "Pedro Juan Caballero", "cliente": "Thiago Peres Dandolini", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 30476.2, "fert": 0.0, "total": 30476.2}, {"unidade": "Katuete", "cliente": "Cristian Natalino Zanfrilli de Souza", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 0.0, "fert": 41700.0012, "total": 41700.0012}, {"unidade": "Katuete", "cliente": "Lenoir Bruch", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 0.0, "fert": 39272.73, "total": 39272.73}, {"unidade": "Santa Rita", "cliente": "Vitor Leandro Cassemiro dos Santos", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 0.0, "fert": 38436.3616, "total": 38436.3616}, {"unidade": "Santa Rita", "cliente": "Lucas Nata Diel De Abreu", "clientes": 2, "pedidos": 2, "agro": 4727.3, "espec": 0.0, "semillas": 1933.3328, "fert": 0.0, "total": 6660.6328}, {"unidade": "Pedro Juan Caballero", "cliente": "Kenji Senno", "clientes": 2, "pedidos": 2, "agro": 3081.84, "espec": 0.0, "semillas": 0.0, "fert": 0.0, "total": 3081.84}, {"unidade": "Campo 9", "cliente": "Angel David Leiva Gomez", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 14114.2859, "fert": 0.0, "total": 14114.2859}, {"unidade": "Campo 9", "cliente": "Renan Willian Peyrot", "clientes": 2, "pedidos": 2, "agro": 2314.5428, "espec": 0.0, "semillas": 0.0, "fert": 0.0, "total": 2314.5428}, {"unidade": "Ciudad del Este", "cliente": "Gabriel Graeff Leal", "clientes": 2, "pedidos": 2, "agro": 0.0, "espec": 0.0, "semillas": 0.0, "fert": 9360.0012, "total": 9360.0012}, {"unidade": "Bella Vista", "cliente": "Lucas Ariel Rivarola Denis", "clientes": 1, "pedidos": 1, "agro": 1291.086, "espec": 775.1816, "semillas": 0.0, "fert": 0.0, "total": 2066.2676}, {"unidade": "Katuete", "cliente": "Pedro Henrique Luchetti Chiodi", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 3809.524, "fert": 0.0, "total": 3809.524}, {"unidade": "San Pedro", "cliente": "Wesley Baran Caetano", "clientes": 1, "pedidos": 1, "agro": 1163.64, "espec": 0.0, "semillas": 0.0, "fert": 0.0, "total": 1163.64}, {"unidade": "San Pedro", "cliente": "Dario Borja Benitez", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 1523.8096, "fert": 0.0, "total": 1523.8096}, {"unidade": "Bella Vista", "cliente": "Alejandro Gabriel Altenhofen Erberich", "clientes": 1, "pedidos": 1, "agro": 0.0, "espec": 0.0, "semillas": 0.0, "fert": 859.9998, "total": 859.9998}, {"unidade": "Campo 9", "cliente": "Maykel Raffael Scher", "clientes": 1, "pedidos": 1, "agro": 163.6362, "espec": 0.0, "semillas": 0.0, "fert": 0.0, "total": 163.6362}];
 
+const STORAGE_KEY_NOMES='somaxRankingNomesGestores';
+const STORAGE_KEY_NOMES_RESET='somaxRankingNomesGestoresReset';
+const NOMES_PADRAO_EDITADOS={
+  'san pedro||alexis osmar florentin jaime':'Alexis Florentin',
+  'bella vista||tiago hammes schmidt':'Tiago Hammes',
+  'san pedro||diego samuel leon villaverde':'Diego Leon',
+  'san alberto||fabio rogerio graeff':'Fabio Graeff',
+  'katuete||augusto kaefer':'Augusto Kaefer',
+  'ciudad del este||antonio carvalho de oliveira':'Antonio Carvalho',
+  'pedro juan caballero||thiago peres dandolini':'Thiago Peres',
+  'katuete||cristian natalino zanfrilli de souza':'Cristian Zanfrilli',
+  'katuete||lenoir bruch':'Lenoir Bruch',
+  'santa rita||vitor leandro cassemiro dos santos':'Vitor Cassemiro',
+  'santa rita||lucas nata diel de abreu':'Lucas Diel'
+};
+let NOMES_EDITADOS={...NOMES_PADRAO_EDITADOS};
+try{
+  const salvos=localStorage.getItem(STORAGE_KEY_NOMES);
+  const restaurado=localStorage.getItem(STORAGE_KEY_NOMES_RESET)==='1';
+  if(salvos){
+    NOMES_EDITADOS=JSON.parse(salvos)||{};
+  }else if(restaurado){
+    NOMES_EDITADOS={};
+  }
+}catch(e){NOMES_EDITADOS={...NOMES_PADRAO_EDITADOS};}
+function gestorKey(r){return [String(r.unidade||'').trim(),String(r.gestorOriginal||r.clienteOriginal||r.cliente||'').trim()].join('||').toLowerCase();}
+function nomeGestor(r){const nome=(NOMES_EDITADOS[gestorKey(r)]||r.cliente||'').trim();return nome||'—';}
+function esc(v){return String(v??'').replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+
 function calc(rows){return rows.map(r=>{
   const sub={cliente:r.clientes*PESOS.cliente,pedido:r.pedidos*PESOS.pedido,
     agro:r.agro*PESOS.agro,espec:r.espec*PESOS.espec,semillas:r.semillas*PESOS.semillas,fert:r.fert*PESOS.fert};
   const pts=Object.values(sub).reduce((a,b)=>a+b,0);
-  return{...r,sub,pts};
+  return{...r,sub,pts,nomeGestor:nomeGestor(r)};
 }).sort((a,b)=>b.pts-a.pts);}
 function fU(n){return Math.round(n).toLocaleString('es-PY')}
 function fP(n){return n.toLocaleString('es-PY',{minimumFractionDigits:1,maximumFractionDigits:1})}
@@ -203,7 +272,7 @@ function render(){
     `<div class="chip"><div class="k">CLIENTES</div><div class="v">${totCli}</div></div>`+
     `<div class="chip"><div class="k">PEDIDOS</div><div class="v">${totPed}</div></div>`+
     `<div class="chip"><div class="k">US$ TOTAL</div><div class="v">${fU(totU)}</div></div>`;
-  document.getElementById('destaque').innerHTML=`<div class="k">SUCURSAL DESTACADA</div><div class="v">${destaque}</div>`;
+  document.getElementById('destaque').innerHTML=`<div class="k">SUCURSAL DESTACADA</div><div class="v">${esc(destaque)}</div>`;
   renderRows();
   renderAdmin();
 }
@@ -211,11 +280,13 @@ function renderRows(){
   const lista=CALC.slice(0,TOP_N);
   document.getElementById('rows').innerHTML=lista.map((o,idx)=>{
     const pos=idx+1;
+    const medal={1:'🥇',2:'🥈',3:'🥉'}[pos];
+    const placa=medal?`<div class="plaque medal" title="${pos}º lugar">${medal}</div>`:`<div class="plaque">${pos}º</div>`;
     return `<div class="row ${pos<=3?'top'+pos:''}">
-      <div class="plaque">${pos}º</div>
+      ${placa}
       <div class="row-info">
-        <div class="row-name">${o.cliente}</div>
-        <div class="row-line2"><span>${o.unidade}</span><span>${o.clientes} Cliente${o.clientes>1?'s':''} · ${o.pedidos} Pedido${o.pedidos>1?'s':''}</span></div>
+        <div class="row-name">${esc(o.nomeGestor)}</div>
+        <div class="row-line2"><span>${esc(o.unidade)}</span><span>${o.clientes} Cliente${o.clientes>1?'s':''} · ${o.pedidos} Pedido${o.pedidos>1?'s':''}</span></div>
       </div>
     </div>`;
   }).join('');
@@ -234,23 +305,75 @@ function renderAdmin(){
     `<table class="peso-table"><thead><tr><th>Critério</th><th class="num">Pontuação</th><th class="num">Equivalência</th></tr></thead><tbody>`+
     pesos.map(p=>`<tr><td>${p[0]}</td><td class="peso-valor">${p[1]}</td><td class="peso-equiv">${p[2]||'—'}</td></tr>`).join('')+
     `</tbody></table>`;
+  renderGestorEditor();
   // tabela geral de pontuação
   const top=CALC;
   let thead=`<tr><th>#</th><th>Gestor</th><th>Sucursal</th><th class="num">Cliente</th><th class="num">Pedido</th><th class="num">Agro</th><th class="num">Espec</th><th class="num">Semillas</th><th class="num">Fert</th><th class="num">US$ Total</th><th class="num">Pontos</th></tr>`;
   let tbody=top.map((o,i)=>
-    `<tr class="${i<TOP_N?'top-rank':''}"><td>${i+1}º</td><td>${o.cliente}</td><td>${o.unidade}</td>`+
+    `<tr class="${i<TOP_N?'top-rank':''}"><td>${i+1}º</td><td>${esc(o.nomeGestor)}</td><td>${esc(o.unidade)}</td>`+
     `<td class="num">${fP(o.sub.cliente)}</td><td class="num">${fP(o.sub.pedido)}</td>`+
     `<td class="num">${fP(o.sub.agro)}</td><td class="num">${fP(o.sub.espec)}</td>`+
     `<td class="num">${fP(o.sub.semillas)}</td><td class="num">${fP(o.sub.fert)}</td>`+
     `<td class="num">${fU(o.total)}</td><td class="num tot">${fP(o.pts)}</td></tr>`).join('');
   document.getElementById('tablaPuntos').innerHTML=thead+tbody;
 }
+function renderGestorEditor(){
+  const el=document.getElementById('editorGestores');
+  if(!el)return;
+  const rows=CALC.map((o,i)=>`<tr>
+    <td>${i+1}º</td>
+    <td class="gestor-original">${esc(o.cliente)}</td>
+    <td><input class="gestor-input" data-key="${esc(gestorKey(o))}" value="${esc(o.nomeGestor)}" placeholder="Nombre del gestor"></td>
+    <td>${esc(o.unidade)}</td>
+  </tr>`).join('');
+  el.innerHTML=`<table class="gestor-table"><thead><tr><th>#</th><th>Original</th><th>Nombre en pantalla</th><th>Sucursal</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+function salvarNomesGestores(){
+  document.querySelectorAll('.gestor-input').forEach(inp=>{
+    const key=inp.dataset.key;
+    const value=inp.value.trim();
+    if(value)NOMES_EDITADOS[key]=value; else delete NOMES_EDITADOS[key];
+  });
+  localStorage.removeItem(STORAGE_KEY_NOMES_RESET);
+  localStorage.setItem(STORAGE_KEY_NOMES,JSON.stringify(NOMES_EDITADOS));
+  render();
+  alert('Nombres de gestores actualizados.');
+}
+function restaurarNomesGestores(){
+  if(!confirm('¿Restaurar todos los nombres originales de los gestores?'))return;
+  NOMES_EDITADOS={};
+  localStorage.removeItem(STORAGE_KEY_NOMES);
+  localStorage.setItem(STORAGE_KEY_NOMES_RESET,'1');
+  render();
+}
+
+function initAdminAccordion(){
+  const sections=[...document.querySelectorAll('.adm-sec')];
+  sections.forEach(sec=>{
+    const btn=sec.querySelector('.adm-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',()=>{
+      const willOpen=!sec.classList.contains('open');
+      sections.forEach(other=>{
+        other.classList.remove('open');
+        const otherBtn=other.querySelector('.adm-toggle');
+        if(otherBtn)otherBtn.setAttribute('aria-expanded','false');
+      });
+      if(willOpen){
+        sec.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        setTimeout(()=>sec.scrollIntoView({behavior:'smooth',block:'start'}),60);
+      }
+    });
+  });
+}
+initAdminAccordion();
 
 // exportar dados no mesmo formato da base
 document.getElementById('exportBtn').addEventListener('click',()=>{
   const aoa=[
     ['Sucursal','Gestor','Clientes','Pedidos','U$ Agroquimicos','U$ Especialidades','U$ Semillas','U$ Fertilizantes','U$ Total'],
-    ...DADOS.map(r=>[r.unidade,r.cliente,r.clientes,r.pedidos,r.agro,r.espec,r.semillas,r.fert,r.total])
+    ...DADOS.map(r=>[r.unidade,nomeGestor(r),r.clientes,r.pedidos,r.agro,r.espec,r.semillas,r.fert,r.total])
   ];
   const ws=XLSX.utils.aoa_to_sheet(aoa);
   ws['!cols']=[{wch:18},{wch:34},{wch:9},{wch:9},{wch:16},{wch:18},{wch:14},{wch:18},{wch:14}];
@@ -258,6 +381,9 @@ document.getElementById('exportBtn').addEventListener('click',()=>{
   XLSX.utils.book_append_sheet(wb,ws,'Base');
   XLSX.writeFile(wb,'Dados_Ranking_Somax.xlsx');
 });
+
+document.getElementById('saveNamesBtn').addEventListener('click',salvarNomesGestores);
+document.getElementById('resetNamesBtn').addEventListener('click',restaurarNomesGestores);
 
 // cadeado / admin
 document.getElementById('lockBtn').addEventListener('click',()=>document.getElementById('admin').classList.add('open'));
@@ -271,7 +397,7 @@ document.getElementById('file').addEventListener('change',e=>{
     let h=aoa.findIndex(r=>r.some(c=>String(c).toLowerCase().includes('cliente')));if(h<0)h=0;
     const n=[];
     for(let i=h+1;i<aoa.length;i++){const r=aoa[i];if(!r||r.length<3)continue;const nm=String(r[1]||'').trim();if(!nm)continue;
-      n.push({unidade:String(r[0]||'').trim()||'—',cliente:nm,clientes:+r[2]||0,pedidos:+r[3]||0,agro:+r[4]||0,espec:+r[5]||0,semillas:+r[6]||0,fert:+r[7]||0,total:+r[8]||((+r[4]||0)+(+r[5]||0)+(+r[6]||0)+(+r[7]||0))})}
+      n.push({unidade:String(r[0]||'').trim()||'—',cliente:nm,gestorOriginal:nm,clientes:+r[2]||0,pedidos:+r[3]||0,agro:+r[4]||0,espec:+r[5]||0,semillas:+r[6]||0,fert:+r[7]||0,total:+r[8]||((+r[4]||0)+(+r[5]||0)+(+r[6]||0)+(+r[7]||0))})}
     if(n.length){DADOS=n;render();alert('Datos importados: '+n.length+' gestores.')}
     else alert('Formato esperado: Sucursal | Gestor | Clientes | Pedidos | U$ Agroquimicos | U$ Especialidades | U$ Semillas | U$ Fertilizantes | U$ Total');
   };fr.readAsArrayBuffer(file);
