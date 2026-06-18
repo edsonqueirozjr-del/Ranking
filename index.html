@@ -37,11 +37,11 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .grid{flex:1;display:flex;min-height:0;padding:clamp(5px,1vh,12px) 0}
 .list{flex:1;background:rgba(28,12,71,.55);border:1px solid var(--cardLine);border-radius:14px;display:flex;flex-direction:column;overflow:hidden;min-height:0;backdrop-filter:blur(2px)}
 .rows{flex:1;display:flex;flex-direction:column;min-height:0;overflow:hidden}
-.row{flex:1;display:grid;grid-template-columns:clamp(28px,4vh,54px) minmax(0,1fr);gap:clamp(5px,1vw,16px);align-items:center;min-height:0;padding:clamp(2px,.45vh,8px) clamp(9px,1.4vw,22px);border-bottom:1px solid rgba(75,45,168,.4);transition:.15s;overflow:hidden}
+.row{flex:1;display:grid;grid-template-columns:clamp(42px,5vh,72px) minmax(0,1fr);gap:clamp(5px,1vw,16px);align-items:center;min-height:0;padding:clamp(2px,.45vh,8px) clamp(9px,1.4vw,22px);border-bottom:1px solid rgba(75,45,168,.4);transition:.15s;overflow:hidden}
 .row:last-child{border-bottom:none}
 .row:hover{background:rgba(75,45,168,.22)}
 .row.top1,.row.top2,.row.top3{background:rgba(255,161,31,.12)}
-.plaque{font-family:'Press Start 2P';font-size:clamp(13px,2.2vh,28px);color:var(--orange);text-align:left;line-height:1}
+.plaque{font-family:'Press Start 2P';font-size:clamp(10px,1.6vh,20px);color:var(--orange);text-align:left;line-height:1}
 .row-info{min-width:0;text-align:left}
 .row-name{font-family:'Saira';font-weight:800;font-size:clamp(13px,1.9vh,26px);text-transform:uppercase;letter-spacing:.1px;line-height:1.04;color:#fff;white-space:nowrap;overflow:visible;text-overflow:clip;max-width:100%}
 .row-line2{display:flex;align-items:center;gap:clamp(4px,.6vw,10px);margin-top:clamp(1px,.3vh,4px);flex-wrap:wrap;font-weight:700;font-size:clamp(10px,1.3vh,16px);color:var(--muted)}
@@ -56,7 +56,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opa
 .destaque .v{font-family:'Saira';font-weight:900;font-size:clamp(15px,2.5vh,32px);line-height:1;color:var(--orange);white-space:nowrap}
 
 .foot{flex:none;display:flex;align-items:center;justify-content:center;padding:clamp(6px,1.2vh,16px) 0 clamp(8px,1.4vh,18px)}
-.foot img{height:clamp(34px,6vh,74px);width:auto;opacity:.97;filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))}
+.foot img{height:clamp(34px,6vh,74px);width:auto;opacity:1;filter:brightness(0) invert(1) saturate(0) drop-shadow(0 2px 6px rgba(0,0,0,.3))}
 .hidden{display:none}
 
 /* cadeado flutuante */
@@ -110,15 +110,15 @@ table.tb tr.top-rank td{background:rgba(255,161,31,.08)}
 .peso-note{margin-top:7px}
 @media (max-width:700px){
   .topbar{padding-top:8px}
-  .row{grid-template-columns:36px minmax(0,1fr);gap:5px;padding:3px 8px}
-  .plaque{font-size:18px}
+  .row{grid-template-columns:52px minmax(0,1fr);gap:8px;padding:3px 8px}
+  .plaque{font-size:14px}
   .row-name{font-size:12px;letter-spacing:0;line-height:1.05}
   .row-line2{font-size:10px;gap:4px;line-height:1.1}
   .destaque{gap:2px}
   .admin{padding:12px}
   .tb-scroll{max-height:55vh}
 }
-@media (max-width:380px){.row-name{font-size:10.5px}.plaque{font-size:16px}.row{grid-template-columns:32px minmax(0,1fr);padding-left:6px;padding-right:6px}}
+@media (max-width:380px){.row-name{font-size:10.5px}.plaque{font-size:13px}.row{grid-template-columns:46px minmax(0,1fr);padding-left:6px;padding-right:6px}}
 </style>
 </head>
 <body>
